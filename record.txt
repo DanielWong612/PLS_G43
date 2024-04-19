@@ -1,0 +1,7 @@
+addPERIOD 2024-06-01 2024-06-30
+addBATCH orderBATCH01.dat
+runPLS FCFS | printREPORT > report_01_FCFS.txt
+runPLS SJF | printREPORT > report_02_SJF.txt
+runPLS PR | printREPORT > report_03_PR.txt
+runPLS DDF | printREPORT > report_04_DDF.txt
+exitPLS
