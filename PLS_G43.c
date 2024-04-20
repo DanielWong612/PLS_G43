@@ -11,7 +11,7 @@
     #define CAPACITY_X 300
     #define CAPACITY_Y 400
     #define CAPACITY_Z 500
-    #define MAXIMUMORDER 1000
+    #define MAXIMUMORDER 10000
 
     typedef struct {
         char orderNo[20];
@@ -64,7 +64,7 @@
 
     // for add order
     int orderCounter = 0;
-    Order orderList[100];
+    Order orderList[MAXIMUMORDER];
 
     //plant day workload counter : X Y Z
     int counter[3] = {0};
@@ -220,15 +220,16 @@
 
     Order addORDER(char* tokens[]){
         Order order;
-        strcpy(order.orderNo, tokens[1]);
-        strcpy(order.dueDate, tokens[2]);
-        int num = atoi(tokens[3]);
-        order.qty = num;
-        strcpy(order.productName, tokens[4]);
+
+            strcpy(order.orderNo, tokens[1]);
+            strcpy(order.dueDate, tokens[2]);
+            int num = atoi(tokens[3]);
+            order.qty = num;
+            strcpy(order.productName, tokens[4]);
         return order;
     }
 
-    int addBATCH(char *filename, Order orderList[100], int orderCounter) {
+    int addBATCH(char *filename, Order orderList[MAXIMUMORDER], int orderCounter, char end_date[20]) {
         Order order;
         FILE *file = fopen(filename, "r");
         if (!file) {
@@ -240,7 +241,8 @@
         while (fgets(line, sizeof(line), file)) {
             char cmd[20], orderNo[20], dueDate[11], productName[20];
             int qty;
-            if (sscanf(line, "%s %s %s %d %s", cmd, orderNo, dueDate, &qty, productName) == 5) {
+            if (sscanf(line, "%s %s %s %d %s", cmd, orderNo, dueDate, &qty, productName) == 5 && compare2Date(dueDate, addMoreDays(end_date,1))&& compare2Date(addMoreDays(start_date,-1),dueDate)) {
+                
                 strcpy(order.orderNo, orderNo);
                 strcpy(order.dueDate, dueDate);
                 order.qty = qty;
@@ -250,7 +252,7 @@
                 //        orderCounter, order.orderNo, order.dueDate, order.qty, order.productName);
                 orderCounter++;
             } else {
-                printf("Failed to parse line: %s\n", line);
+                printf("Failed to parse line: %s", line);
             }
         }
         fclose(file);
@@ -391,7 +393,7 @@
         fclose(file);
     }
 
-    int c1ReadFile(char *filename, Order orderList[100], char start_date[20], char end_date[20], char algoType[20], char reportName[20]) {
+    int c1ReadFile(char *filename, Order orderList[MAXIMUMORDER], char start_date[20], char end_date[20], char algoType[20], char reportName[20]) {
         Order order;
         int orderCounter = 0;
         FILE *file = fopen(filename, "r");
@@ -417,7 +419,7 @@
                     orderList[orderCounter] = order;
                     orderCounter++;
                 } else {
-                    printf("Failed to parse line: %s\n", line);
+                    printf("Failed to parse line: %s", line);
                 }
             }
             ++lineNo;
@@ -499,8 +501,7 @@
         int totalQty_canProduce[] = {0, 0, 0};
         double utilization[] = {0, 0, 0};
         int totalDaysUsed[] = {0, 0, 0};
-
-            int periodTotalDays = calDays(start_date,end_date);
+        int periodTotalDays = calDays(start_date,end_date);
         for(i=0;i<3;i++){
             //printf("Plant %s (%d per day)\n", orderPlantList[i].plant.plantName, orderPlantList[i].plant.capacity);
             for (j = 0; j < orderCounter; j++) {
@@ -511,10 +512,8 @@
             }   
         }
         for(i=0;i<3;i++){
-             //totalQty_canProduce[i] = orderPlantList[i].plant.capacity * totalDaysUsed[i];
-                totalQty_canProduce[i] = orderPlantList[i].plant.capacity * periodTotalDays;
-             utilization[i] =  (double)totalUsed[i] / totalQty_canProduce[i] * 100.0;
-            // printf(" %.2f%% of\n", utilization[i]);
+            totalQty_canProduce[i] = orderPlantList[i].plant.capacity * periodTotalDays;
+            utilization[i] =  (double)totalUsed[i] / totalQty_canProduce[i] * 100.0;
         }
 
         FILE *file = fopen(reportName, "w");
@@ -852,7 +851,7 @@ void inputLog( char data[20]){
         printf("    ~~~WELCOME TO PLS~~\n\n");
         while(1){
             clearTokens(tokens, 20);
-            printf("Please enter: \n");        
+            printf("Please enter:\n");        
             n = read(STDIN_FILENO,buf_p,80); 
             if (n <= 0) break;
             buf_p[--n] = 0;
@@ -874,12 +873,19 @@ void inputLog( char data[20]){
                 orderCounter = 0;
                 period = calDays(start_date, end_date);
             }else if(strcmp(tokens[0], "addORDER")==0 && strcmp(start_date, "") !=0){
-                orderList[orderCounter] = addORDER(tokens);
-
                 
-                orderCounter++;//
+                Order tempOrder = addORDER(tokens);
+                
+                if (compare2Date(tempOrder.dueDate, addMoreDays(end_date,1)) && compare2Date(addMoreDays(start_date,-1),tempOrder.dueDate)) {
+                    orderList[orderCounter] = tempOrder;
+                    orderCounter++;//
+                }else{
+                    printf("Please enter the correct dates!\n");
+                    continue;
+                }
+                
             }else if(strcmp(tokens[0], "addBATCH")==0 && strcmp(start_date, "") !=0){
-                orderCounter = addBATCH(tokens[1], orderList, orderCounter);
+                orderCounter = addBATCH(tokens[1], orderList, orderCounter, end_date);
 
 
             }else if(strcmp(tokens[0], "runPLS")==0 && strcmp(start_date, "") !=0){

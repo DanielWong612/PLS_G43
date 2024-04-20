@@ -1,0 +1,27 @@
+./PLSG43
+addPERIOD 2024-08-01 2024-08-31
+exitPLS
+
+./PLSG43
+addPERIOD 2024-08-01 2024-08-31
+addORDER P0001 2024-08-06 2000 Product_A
+addORDER P0002 2024-08-07 3000 Product_C
+addORDER P0003 2024-08-10 1000 Product_D
+addORDER P0004 2024-07-20 3000 Product_E
+addORDER P0005 2024-08-15 4000 Product_C
+addORDER P0006 2024-08-21 5000 Product_F
+addORDER P0007 2024-08-20 2000 Product_E
+addORDER P0008 2024-08-18 2000 Product_B
+addORDER P0009 2024-08-23 3000 Product_G
+addORDER P0010 2024-07-25 2000 Product_B
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+runPLS SJF | printREPORT > report_43_SJF.txt
+runPLS PR | printREPORT > report_43_PR.txt
+runPLS DDF | printREPORT > report_43_DDF.txt 
+
+addBATCH orderBATCH01.dat 
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+runPLS SJF | printREPORT > report_43_SJF.txt
+runPLS PR | printREPORT > report_43_PR.txt
+runPLS DDF | printREPORT > report_43_DDF.txt
+exitPLS

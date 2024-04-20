@@ -1,0 +1,40 @@
+***PLS Schedule Analysis Report***
+
+Algorithm used: FCFS
+
+There are 1 Orders ACCEPTED.	Details are as follows:
+
+ORDER NUMBER	START		END		DAYS	QUANTITY	PLANT
+====================================================================================
+P0001		2024-08-01	2024-08-02	2	300		PLANT_X
+P0001		2024-08-01	2024-08-01	1	400		PLANT_Y
+P0001		2024-08-01	2024-08-02	2	500		PLANT_Z
+
+			- End -
+
+====================================================================================
+
+There are 0 Orders REJECTED.	Details are as follows:
+
+ORDER NUMBER	PRODUCT NAME	Due Date	QUANTITY
+====================================================================================
+
+			- End -
+
+====================================================================================
+***PERFORMANCE
+
+Plant_X:
+		Number of days in use:					2 days
+		Number of products produced:			600 (in total)
+		Utilization of the plant:				6.45%
+Plant_Y:
+		Number of days in use:					1 days
+		Number of products produced:			400 (in total)
+		Utilization of the plant:				3.23%
+Plant_Z:
+		Number of days in use:					2 days
+		Number of products produced:			1000 (in total)
+		Utilization of the plant:				6.45%
+
+Overall of utilization:							5.38%

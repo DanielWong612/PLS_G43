@@ -5,3 +5,110 @@ runPLS SJF | printREPORT > report_02_SJF.txt
 runPLS PR | printREPORT > report_03_PR.txt
 runPLS DDF | printREPORT > report_04_DDF.txt
 exitPLS
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+addBATCH orderBATCH01.dat 
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+	runPLS FCFS | printREPORT > report_43_FCFS.txt
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+runPLS SJF | printREPORT > report_43_SJF.txt
+runPLS PR | printREPORT > report_43_PR.txt
+runPLS DDF | printREPORT > report_43_DDF.txt
+exitPLS
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+runPLS DDF | printREPORT > report_43_DDF.txt
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+runPLS DDF | printREPORT > report_43_DDF.txt
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+runPLS DDF | printREPORT > report_43_DDF.txt
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+runPLS DDF | printREPORT > report_43_DDF.txt
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+runPLS SJF | printREPORT > report_43_SJF.txt
+runPLS PR | printREPORT > report_43_PR.txt
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+runPLS SJF | printREPORT > report_43_SJF.txt
+runPLS PR | printREPORT > report_43_PR.txt
+runPLS DDF | printREPORT > report_43_DDF.txt
+
+addPERIOD 2024-08-01 2024-08-31
+addORDER P0004 2024-07-20 3000 Product_E
+addPERIOD 2024-08-01 2024-08-31
+addORDER P0004 2024-07-20 3000 Product_E
+addPERIOD 2024-08-01 2024-08-31
+addORDER P0004 2024-07-20 3000 Product_E
+addORDER P0001 2024-08-06 2000 Product_A
+runPLS FCFS | printREPORT > report_43_FCFS.txt
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 
+addPERIOD 2024-08-01 2024-08-31
+addBATCH orderBATCH01.dat 

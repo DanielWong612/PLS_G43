@@ -1,0 +1,37 @@
+***PLS Schedule Analysis Report***
+
+Algorithm used: DDF
+
+There are 0 Orders ACCEPTED.	Details are as follows:
+
+ORDER NUMBER	START		END		DAYS	QUANTITY	PLANT
+====================================================================================
+
+			- End -
+
+====================================================================================
+
+There are 0 Orders REJECTED.	Details are as follows:
+
+ORDER NUMBER	PRODUCT NAME	Due Date	QUANTITY
+====================================================================================
+
+			- End -
+
+====================================================================================
+***PERFORMANCE
+
+Plant_:
+		Number of days in use:					0 days
+		Number of products produced:			0 (in total)
+		Utilization of the plant:				nan%
+Plant_:
+		Number of days in use:					0 days
+		Number of products produced:			0 (in total)
+		Utilization of the plant:				nan%
+Plant_:
+		Number of days in use:					0 days
+		Number of products produced:			0 (in total)
+		Utilization of the plant:				nan%
+
+Overall of utilization:							nan%
